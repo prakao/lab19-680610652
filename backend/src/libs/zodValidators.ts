@@ -74,9 +74,9 @@ export const zStudentPostBody = z.object({
 
 export const zStudentPutBody = z.object({
   studentId: zStudentId,
-  firstName: zFirstName.nullish(), //firstName can be null or undefined
-  lastName: zLastName.nullish(), //lastName can be null or undefined
-  program: zProgram.nullish(), //program can be null or undefined
+  firstName: zFirstName.nullish(),
+  lastName: zLastName.nullish(),
+  program: zProgram.nullish(),
   interests: zInterests.nullish(),
   emails: zEmails.nullish(),
 });
@@ -96,4 +96,10 @@ export const zUserBody = z.object({
   role: z.enum(["STUDENT", "ADMIN"], {
     message: "Role must be either STUDENT or ADMIN",
   }),
+});
+
+export const zEnrollmentPutBody = z.object({
+  studentId: zStudentId,
+  courseId: zCourseId,
+  newCourseId: zCourseId,
 });
